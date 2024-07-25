@@ -15,6 +15,18 @@ public class Leave {
         this.yearsInOrg = leavesLeftPreviously.length;
     }
 
+    public int getTotalLeaveLeftPreviously(){
+        int years = 3;
+        if ( yearsInOrg < 3) {
+            years = yearsInOrg;
+        }
+        int totalLeaveLeftPreviously = 0;
+        for (int i = 0; i < years; i++) {
+            totalLeaveLeftPreviously += leavesLeftPreviously[yearsInOrg-i-1];
+        }
+        return totalLeaveLeftPreviously;
+    }
+
     public static int getTotalLeavesAllowed() {
         return TOTAL_LEAVES_ALLOWED;
     }

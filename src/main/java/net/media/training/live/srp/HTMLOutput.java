@@ -17,14 +17,7 @@ public class HTMLOutput{
         str += "<span>" + Math.round(employee.getMonthlySalary() * 12) + "</span>";
         if (employee.getManager() != null) str += "<span>" + employee.getManager() + "</span>";
         else str += "<span>None</span>";
-        int years = 3;
-        if (employee.getLeave().getYearsInOrg() < 3) {
-            years = employee.getLeave().getYearsInOrg();
-        }
-        int totalLeaveLeftPreviously = 0;
-        for (int i = 0; i < years; i++) {
-            totalLeaveLeftPreviously += employee.getLeave().getLeavesLeftPreviously()[employee.getLeave().getYearsInOrg()-i-1];
-        }
+        int totalLeaveLeftPreviously = employee.getLeave().getTotalLeaveLeftPreviously();
         str += "<span>" + totalLeaveLeftPreviously + "</span>";
         return str + "</div> </div>";
     }
