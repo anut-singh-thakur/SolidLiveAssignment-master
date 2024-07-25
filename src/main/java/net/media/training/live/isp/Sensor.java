@@ -10,6 +10,6 @@ package net.media.training.live.isp;
 public class Sensor {
     public void register(SensorClient sensorClient)
     {
-        //calls sensorClient.proximityCallback();
+        sensorClient.proximityCallback();
     }
 }
