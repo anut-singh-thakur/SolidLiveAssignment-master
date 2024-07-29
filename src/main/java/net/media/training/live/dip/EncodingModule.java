@@ -1,9 +1,6 @@
 package net.media.training.live.dip;
 
-
-import java.io.*;
-import java.net.MalformedURLException;
-import java.net.URL;
+import java.util.List;
 import java.util.ArrayList;
 import java.util.Base64;
 
@@ -17,16 +14,15 @@ import java.util.Base64;
 
 public class EncodingModule {
 
-    public ArrayList<String> encode(ArrayList<String> list){
-        ArrayList<String> encodedList = new ArrayList<String>();
+    public void encode(Reader reader,Writer writer){
+
+        List<String> list  = reader.read();
+        List<String> encodedList = new ArrayList<String>();
         for(String line:list) {
             String encodedLine = Base64.getEncoder().encodeToString(line.getBytes());
             encodedList.add(encodedLine);
         }
-        return encodedList;
-    }
-    public String encode(String data){
-        return Base64.getEncoder().encodeToString(data.getBytes());
+        writer.write(encodedList);
     }
 }
 
